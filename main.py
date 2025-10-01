@@ -1,5 +1,6 @@
 import requests
 import json
+import pyttsx3
 
 city = input("Enter the name of the city: ")
 
@@ -18,3 +19,8 @@ h = weatherDict["current"]["humidity"]
 print(f"The temperature at {city} is: ", w, "degrees Celsius")
 print(f"The humidity at {city} is: ", h )
 
+engine = pyttsx3.init()
+engine.say(f"The temperature at {city} is: {w} degrees Celsius")
+engine.runAndWait()
+engine.say(f"The humidity at {city} is: {h}")
+engine.runAndWait()
